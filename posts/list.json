@@ -1,0 +1,12 @@
+[
+  {
+    title: 'hogehoge',
+    wrapup: 'short text',
+    file: 'hoge.md',
+  },
+  {
+    title: 'hgeo',
+    wrapup: 'short text',
+    file: 'foo.md',
+  }
+]
