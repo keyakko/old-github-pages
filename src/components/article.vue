@@ -2,28 +2,86 @@
   <div class="main">
     <article v-if="true">
       <div class="info">
-        <p class="title">hogehoge</p>
+        <p class="title">{{post_title}}</p>
         <div class="meta">
-          <p class="date">100000000</p>
+          <p class="date">{{post_date}}</p>
         </div>
       </div>
       <div class="wrapper">
-        {{post}}
+        <vue-markdown :source="post_description"></vue-markdown>
       </div>
     </article>
 
     <div class="notfound" v-else>
-      <p>404 Not found</p>
+      <p>Not found</p>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+import VueMarkdown from 'vue-markdown'
 export default {
   name: 'article',
+  components: {
+    VueMarkdown
+  },
   data () {
     return {
-      post: 'post'
+      exist: false,
+      post_title: '',
+      post_date: '',
+      post_description: '',
+    }
+  },
+  props: [
+    'archive'
+  ],
+  mounted() {
+    this.load_post()
+  },
+  beforeUpdate() {
+  },
+  watch: {
+    archive: async function() {
+      var search_lt = this.$route.params.title;
+      var data = '';
+      for(var i = 0; i < this.$props.archive.length; i++) {
+        if (this.$props.archive[i].title == search_lt) {
+          this.$data.exist = true;
+          this.$data.post_title = this.$props.archive[i].title;
+          this.$data.post_date = this.$props.archive[i].date;
+          await axios.get('/posts/' + this.$props.archive[i].file + '.md')
+          .then(function(response) {
+            data = response.data;
+          });
+          this.$data.post_description = data;
+          break;
+        }
+      }
+      console.table(this.$prop.archive);
+      console.table(this.$data);
+    }
+  },
+  methods: {
+    async load_post() {
+      var search_lt = this.$route.params.title;
+      var data = '';
+      for(var i = 0; i < this.$props.archive.length; i++) {
+        if (this.$props.archive[i].title == search_lt) {
+          this.$data.exist = true;
+          this.$data.post_title = this.$props.archive[i].title;
+          this.$data.post_date = this.$props.archive[i].date;
+          await axios.get('http://localhost/posts/' + this.$props.archive[i].file + '.md')
+          .then(function(response) {
+            data = response.data;
+          });
+          this.$data.post_description = data;
+          break;
+        }
+      }
+      console.table(this.$prop.archive);
+      console.table(this.$data);
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <template-header />
-    <router-view/>
+    <router-view :archive="archive" />
     <template-footer />
   </div>
 </template>
@@ -21,17 +21,17 @@ export default {
       archive: [],
     }
   },
-  created () {
+  mounted () {
     this.get_lists()
   },
   methods: {
-    get_lists () {
-      console.log('hoge');
-      axios.get('/posts/list.json')
+    async get_lists () {
+      var j_data;
+      await axios.get('/posts/list.json')
       .then(function(response) {
-        console.table(response);
-        return response;
+        j_data = response.data;
       });
+      this.$data.archive = j_data;
     }
   }
 }

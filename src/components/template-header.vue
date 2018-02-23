@@ -2,7 +2,7 @@
   <div class="header">
     <header>
       <div class="wrapper">
-        <h1 class="title">keyakko weblog</h1>
+        <a href="/"><h1 class="title">keyakko weblog</h1></a>
       </div>
     </header>
   </div>
@@ -31,12 +31,19 @@ export default {
       .wrapper {
         width: 400px;
         margin: 0 auto;
-        h1 {
-          font-size: 1em;
-          font-weight: normal;
-          text-align: center;
-          margin: 0;
-          line-height: 1.5em;
+        a {
+          color: white;
+          text-decoration: none;
+          &:hover {
+            color: #ffffff88;
+          }
+          h1 {
+            font-size: 1em;
+            font-weight: normal;
+            text-align: center;
+            margin: 0;
+            line-height: 1.5em;
+          }
         }
       }
     }

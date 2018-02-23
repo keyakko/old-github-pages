@@ -23,6 +23,7 @@ export default {
   $pc-wrap: 1100px;
   .footer {
     width: 100%;
+    margin-top: 200px;
     footer {
       width: 100%;
       color: white;

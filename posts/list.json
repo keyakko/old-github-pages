@@ -1,12 +1,14 @@
 [
   {
-    title: 'hogehoge',
-    wrapup: 'short text',
-    file: 'hoge.md',
+    "title": "hogehoge",
+    "date": "2018/01/20",
+    "wrapup": "short text",
+    "file": "hoge"
   },
   {
-    title: 'hgeo',
-    wrapup: 'short text',
-    file: 'foo.md',
+    "title": "hgeo",
+    "date": "2018/01/20",
+    "wrapup": "short text",
+    "file": "foo"
   }
 ]
