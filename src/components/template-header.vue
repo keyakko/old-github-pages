@@ -2,7 +2,7 @@
   <div class="header">
     <header>
       <div class="wrapper">
-        <a href="/"><h1 class="title">keyakko weblog</h1></a>
+        <router-link :to="{path: '/'}"><h1 class="title">title</h1></router-link>
       </div>
     </header>
   </div>

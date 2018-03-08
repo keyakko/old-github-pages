@@ -27,7 +27,7 @@ export default {
   methods: {
     async get_lists () {
       var j_data;
-      await axios.get('/posts/list.json')
+      await axios.get('http://localhost/posts/list.json')
       .then(function(response) {
         j_data = response.data;
       });
@@ -43,6 +43,12 @@ export default {
 </script>
 
 <style lang="scss">
+  /*basecolor*/
+  $basewhite: #ffffff;
+  $baseblack: #555555;
+  $baseblue: #4B9494;
+  $basered: #F77D7D;
+
   @charset 'UTF-8';
   @import 'normalize.css';
   body {

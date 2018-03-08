@@ -1,14 +1,11 @@
 [
   {
-    "title": "hogehoge",
-    "date": "2018/01/20",
-    "wrapup": "short text",
-    "file": "hoge"
-  },
-  {
-    "title": "hgeo",
-    "date": "2018/01/20",
-    "wrapup": "short text",
-    "file": "foo"
+    "title": "ICTSC9に行ってきた話",
+    "date": "2018/03/08",
+    "wrapup": "参加してみた感想とか",
+    "file": "20180308ictsc",
+    "tag": [
+      "ictsc"
+    ]
   }
 ]

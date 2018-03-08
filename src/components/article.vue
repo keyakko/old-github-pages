@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <article v-if="true">
+    <article v-if="exist">
       <div class="info">
         <p class="title">{{post_title}}</p>
         <div class="meta">
@@ -72,7 +72,7 @@ export default {
           this.$data.exist = true;
           this.$data.post_title = this.$props.archive[i].title;
           this.$data.post_date = this.$props.archive[i].date;
-          await axios.get('http://localhost/posts/' + this.$props.archive[i].file + '.md')
+          await axios.get('/posts/' + this.$props.archive[i].file + '.md')
           .then(function(response) {
             data = response.data;
           });
@@ -88,9 +88,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  /*basecolor*/
+  $basewhite: #ffffff;
+  $baseblack: #555555;
+  $baseblue: #4B9494;
+  $basered: #F77D7D;
+  
   article {
     .info {
-      background-color: #0fdca5;
+      background-color: $baseblue;
       color: white;
       padding: 30px 20px;
       .title {
